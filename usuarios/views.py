@@ -43,23 +43,23 @@ def registro(request):
 
 @login_required
 def editar_usuario(request):
-    
     metadatausuarios = request.user.metadatausuarios
     formulario = EditarUsuario(initial={'avatar': metadatausuarios.avatar}, instance=request.user)
     
     if request.method == "POST":
-        formulario = EditarUsuario(request.POST, request.FILES , instance=request.user)
+        formulario = EditarUsuario(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
-            
-            
             metadatausuarios.avatar = formulario.cleaned_data.get('avatar')
             metadatausuarios.save()
-            
             formulario.save()
-            return redirect('editar_usuario')
+            return redirect('inicio')
     
     return render(request, 'usuario/editar_usuario.html', {'formulario': formulario})
 
 class CambiarPassword(PasswordChangeView):
     template_name = 'usuario/cambiar_pass.html'
     success_url = reverse_lazy('editar_usuario')
+    
+def ver_usuario(request, id):
+    usuario_instancia = Usuario.objects.get(id=id)
+    return render(request, 'inicio/ver_usuario.html', {'usuario': usuario_instancia})
