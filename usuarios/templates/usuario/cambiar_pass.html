@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Cambio de contraseña
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>
+    Cambio de contraseña
+</h1>
+<p>Por favor cambie su contraseña</p>
+{% endblock h1_header %}
+
+{% block main %}
+
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center">
+        <form action={% url "cambiar_pass" %} method='POST' class="form-field">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="d-flex justify-content-center mt-3">
+                <input type="submit" value="Cambiar" style="max-width: fit-content;" class="boton-crear me-2">
+
+
+                
+            </div>
+        </form>
+        <p>Si su cambio es correcto, automaticamente volvera a la edicion de usuario.</p>
+    </div>
+</div>
+
+
+{% endblock main %}
