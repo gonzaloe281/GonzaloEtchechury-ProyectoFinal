@@ -61,5 +61,5 @@ class CambiarPassword(PasswordChangeView):
     success_url = reverse_lazy('editar_usuario')
     
 def ver_usuario(request, id):
-    usuario_instancia = Usuario.objects.get(id=id)
+    usuario_instancia = MetaDataUsuarios.objects.get(id=id)
     return render(request, 'inicio/ver_usuario.html', {'usuario': usuario_instancia})
