@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Edicion de Usuario
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>
+    Edicion de Usuario
+</h1>
+<p>Por favor rellene los campos</p>
+{% endblock h1_header %}
+
+{% block main %}
+
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center">
+        <form action={% url "editar_usuario" %} method='POST' enctype='multipart/form-data' class="form-field">
+            {% csrf_token %}
+            {{formulario.as_p}}
+            <input type="submit" value="Editar">
+            <div class="d-flex justify-content-center mt-3">
+
+                <a href={% url "cambiar_pass" %} class="boton-crear">Cambiar contraseña</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock main %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Editando Vuelos
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>
+    Editando a <p>
+        
+        {{vuelo}}
+    </p>
+</h1>
+    
+{% endblock h1_header %}
+
+{% block main %}
+
+
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center">
+        
+        <form action={% url "editar_vuelo" vuelo.id%} method='POST' class="form-field">
+            {% csrf_token %}
+            
+            {{formulario.as_p}}
+            <input type="submit" value="Enviar" class="boton-crear">
+        
+        </form>
+    </div>
+
+</div>
+
+
+{% endblock main %}

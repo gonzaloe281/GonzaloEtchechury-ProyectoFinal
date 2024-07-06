@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Listado
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>
+    Listado de Vuelos creados
+</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center">
+        <h1>
+            <a href={% url "crear_vuelo" %}>Registrar vuelo🛫</a>
+        </h1>
+        <form action="{% url 'listado' %}" method="get">
+            {{ formulario.vuelo }}
+            <input type="submit" value="Buscar" class="boton-crear">
+        </form>
+        
+        {% if vuelos %}
+            <ul>
+                {% for vuelo in vuelos %}
+                    <li class="{% cycle 'fondo-blanco' 'fondo-gris-claro' %}">
+                        {{ vuelo.vuelo }} de {{ vuelo.aerolinea }} |
+                        <a href="{% url 'eliminar_vuelo' vuelo.id %}">Eliminar</a> |
+                        <a href="{% url 'editar_vuelo' vuelo.id %}">Editar</a> |
+                        <a href="{% url 'ver_vuelo' vuelo.id %}">Ver</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+        <h1>No hay vuelos registrados</h1>
+        <p>Crea alguno</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock main %}
