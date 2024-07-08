@@ -23,12 +23,13 @@
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
                 <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
-                <a class="navbar-brand" href={% url "crear_vuelo" %}>Crear Vuelo</a>
+                {% comment %} <a class="navbar-brand" href={% url "crear_vuelo" %}>Crear Vuelo</a> {% endcomment %}
                 <a class="navbar-brand" href={% url "listado" %}>Listado de Vuelos</a>
+                <a class="navbar-brand" href={% url "pasajeros" %}>Pasajeros</a>
                 <a class="navbar-brand" href={% url "about" %}>Acerca de mi</a>
                 
                 {% if request.user.is_authenticated %}
-                <a class="navbar-brand" href={% url "editar_usuario" %}>
+                <a class="navbar-brand" href={% url "ver_usuario" request.user.id%}>
                     {% if request.user.metadatausuarios.avatar %}
                     <img src={{request.user.metadatausuarios.avatar.url}} alt="Avatar" height='40px'>
                     {% endif %}

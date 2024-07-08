@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'inicio',
     'usuarios',
+    'pasajero',
 ]
 
 MIDDLEWARE = [
@@ -123,7 +124,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_URL = '/usuario/logueo/'
+LOGIN_URL = '/usuarios/loguear/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DATE_INPUT_FORMATS = ('%d-%m-%Y',)

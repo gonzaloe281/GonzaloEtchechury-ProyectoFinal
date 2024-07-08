@@ -18,26 +18,20 @@ Estas viendo el vuelo <br>{{vuelo.vuelo}}
         <h1>Detalles</h1>
 
             <h5>
-                Nombre del Vuelo: 
+                Nombre del Vuelo: |    Aerolínea:
             </h5>
-            {{ vuelo.vuelo }} <br><br>
-            <h5>
-                Aerolínea:
-            </h5>
-            {{ vuelo.aerolinea }} <br><br>
-            <h5>
-            Fabricante: 
-            </h5>
-            {{ vuelo.fabricante }} <br><br>
-            <h5>
-                Modelo: 
-            </h5>
-            {{ vuelo.modelo }} <br><br>
-            <h5>
-                Pasajeros: 
-            </h5>
-            {{ vuelo.pasajeros }}   
             
+            {{ vuelo.vuelo }} |    {{vuelo.aerolinea}} <br><br>
+            <h5>
+
+            Fabricante: |    Modelo:
+            </h5>
+            {{ vuelo.fabricante }} |      {{ vuelo.modelo }}<br><br>
+            
+            <h5>
+                Pasajeros: |      Fecha:
+            </h5>
+            {{ vuelo.pasajeros }} |    {{vuelo.fecha}}<br><br>
             
         
         

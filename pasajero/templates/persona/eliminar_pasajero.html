@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Eliminar Pasajero
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>
+
+    Eliminacion de 
+</h1><h2 style="color:red">
+    {{pasajero}}
+
+</h2>
+{% endblock h1_header %}
+
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center">
+        <form action={% url "eliminar_pasajero" pasajero.id%} method="POST">
+            {% csrf_token %}
+            <p>
+                <h5>
+
+                    Desea confirmar el borrado de {{pasajero}}???
+                </h5>
+            </p>
+            <input type="submit" value="Confirmar borrado" class="boton-crear">
+        </form>
+    </div>
+</div>
+{% endblock main %}

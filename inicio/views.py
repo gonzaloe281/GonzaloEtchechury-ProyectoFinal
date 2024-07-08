@@ -14,8 +14,8 @@ from django.contrib.auth.decorators import login_required
 def inicio(request):
     return render(request, 'inicio/index.html')
 
-def crear_vuelo_v1(request, nombrevuelo, aerolinea, fabricante, modelo, pasajeros):
-    vuelo = Vuelo(nombrevuelo=nombrevuelo, aerolinea=aerolinea, fabricante=fabricante, modelo=modelo, pasajeros=pasajeros)
+def crear_vuelo_v1(request, nombrevuelo, aerolinea, fabricante, modelo, pasajeros, fecha):
+    vuelo = Vuelo(nombrevuelo=nombrevuelo, aerolinea=aerolinea, fabricante=fabricante, modelo=modelo, pasajeros=pasajeros, fecha=fecha)
     vuelo.save()
     return render(request, 'inicio/crear_vuelo.html', {'vuelo': vuelo})
 
@@ -30,7 +30,8 @@ def crear_vuelo(request):
                 aerolinea=datos.get('aerolinea'),
                 fabricante=datos.get('fabricante'),
                 modelo=datos.get('modelo'),
-                pasajeros=datos.get('pasajeros')
+                pasajeros=datos.get('pasajeros'),
+                fecha=datos.get('fecha')
             )
             vuelo.save()
             return redirect('listado')
@@ -55,6 +56,7 @@ def editar_vuelo(request, id):
             vuelo.fabricante = info['fabricante']
             vuelo.modelo = info['modelo']
             vuelo.pasajeros = info['pasajeros']
+            vuelo.fecha = info['fecha']
             vuelo.save()
             return redirect('listado')
     return render(request, 'inicio/editar_vuelo.html', {'formulario': formulario, 'vuelo': vuelo})

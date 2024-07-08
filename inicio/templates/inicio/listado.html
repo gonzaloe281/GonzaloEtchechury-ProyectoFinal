@@ -14,7 +14,7 @@ Listado
 <div class="container d-flex justify-content-center align-items-start vh-100">
     <div class="texto-centrado border-shadow text-center">
         <h1>
-            <a href={% url "crear_vuelo" %}>Registrar vuelo🛫</a>
+            <a href={% url "crear_vuelo" %} class="boton-crear">Registrar vuelo🛫</a>
         </h1>
         <form action="{% url 'listado' %}" method="get">
             {{ formulario.vuelo }}

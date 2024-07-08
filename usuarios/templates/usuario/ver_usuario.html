@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Viendo vuelo
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>
+{{pasajero}}
+</h1>
+    
+{% endblock h1_header %}
+
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center" >
+
+        <h1>Detalles</h1>
+        <ul>
+            <p>Nombre: {{usuario.first_name}} </p>
+            <p>Apellido: {{usuario.last_name}} </p>
+            <p>Fecha de Nacimiento: {{usuario.biografia }} </p>
+
+        </ul>
+            
+        
+        
+    </div>
+
+</div>
+
+{% endblock main %}

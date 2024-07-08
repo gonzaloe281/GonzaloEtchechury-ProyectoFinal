@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Listado
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>
+    Listado de Vuelos creados
+</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center">
+        <h1>
+            <a href={% url "crear_pasajero" %} class="boton-crear">Registrar pasajero 😎</a>
+        </h1>
+        
+        
+        {% if pasajeros %}
+            <ul>
+                {% for pasajero in pasajeros %}
+                    <li class="{% cycle 'fondo-blanco' 'fondo-gris-claro' %}">
+                        {{pasajero}} |
+                        <a href="{% url 'eliminar_pasajero' pasajero.id %}">Eliminar</a> |
+                        <a href="{% url 'editar_pasajero' pasajero.id %}">Editar</a> |
+                        <a href="{% url 'ver_pasajero' pasajero.id %}">Ver</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+        <h1>No hay pasajeros</h1>
+        <p>Ingresa alguno</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock main %}
