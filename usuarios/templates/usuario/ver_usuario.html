@@ -6,7 +6,7 @@ Viendo vuelo
 
 {% block h1_header %}
 <h1>
-{{pasajero}}
+{{usuario.user.username}}
 </h1>
     
 {% endblock h1_header %}
@@ -17,10 +17,10 @@ Viendo vuelo
 
         <h1>Detalles</h1>
         <ul>
-            <p>Nombre: {{usuario.first_name}} </p>
+            <p>Nombre: {{usuario.user.nombre}} </p>
             <p>Apellido: {{usuario.last_name}} </p>
             <p>Fecha de Nacimiento: {{usuario.biografia }} </p>
-
+            <a href={% url "editar_usuario" %} class="boton-crear mt-2">Editar</a>
         </ul>
             
         
