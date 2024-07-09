@@ -45,27 +45,30 @@ def registro(request):
 
 @login_required
 def editar_usuario(request):
-    try:
-        metadata_usuario = MetaDataUsuarios.objects.get(user=request.user)
-    except MetaDataUsuarios.DoesNotExist:
-        metadata_usuario = None
+    metadatausuarios = request.user.metadatausuarios
+    formulario = EditarUsuario(initial={'avatar': metadatausuarios.avatar}, instance=request.user)
     
     if request.method == "POST":
         formulario = EditarUsuario(request.POST, request.FILES, instance=request.user)
+        
         if formulario.is_valid():
+            
+            avatar = formulario.cleaned_data.get('avatar')
+            if avatar:
+                metadatausuarios.avatar = avatar
+            else:
+                formulario.cleaned_data['avatar'] = metadatausuarios.avatar
+            
+            metadatausuarios.save()
             formulario.save()
-            if metadata_usuario:
-                metadata_usuario.avatar = formulario.cleaned_data.get('avatar')
-                metadata_usuario.save()
-            return redirect('editar_usuario')
-    else:
-        usuario = request.user
-        if metadata_usuario:
-            formulario = EditarUsuario(instance=usuario, initial={'biografia': metadata_usuario.biografia, 'avatar': metadata_usuario.avatar})
-        else:
-            formulario = EditarUsuario(instance=usuario)
+            return redirect('ver_usuario')
     
     return render(request, 'usuario/editar_usuario.html', {'formulario': formulario})
+
+@login_required
+def ver_usuario(request):
+    metadatausuarios = request.user.metadatausuarios
+    return render(request, 'usuario/ver_usuario.html', {'metadatausuarios': metadatausuarios})
 
 class CambiarPassword(PasswordChangeView):
     template_name = 'usuario/cambiar_pass.html'

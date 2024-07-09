@@ -6,8 +6,12 @@ Viendo vuelo
 
 {% block h1_header %}
 <h1>
-{{usuario.user.username}}
+Este es el perfil de: 
 </h1>
+<h3>
+    {{ metadatausuarios.user.username }}
+
+</h3>
     
 {% endblock h1_header %}
 
@@ -15,13 +19,15 @@ Viendo vuelo
 <div class="container d-flex justify-content-center align-items-start vh-100">
     <div class="texto-centrado border-shadow text-center" >
 
-        <h1>Detalles</h1>
-        <ul>
-            <p>Nombre: {{usuario.user.nombre}} </p>
-            <p>Apellido: {{usuario.last_name}} </p>
-            <p>Fecha de Nacimiento: {{usuario.biografia }} </p>
-            <a href={% url "editar_usuario" %} class="boton-crear mt-2">Editar</a>
-        </ul>
+        <h5 class="card-title">Informacion</h5>
+            <p class="card-text"><strong>Email:</strong> {{ metadatausuarios.user.email }}</p>
+            <p class="card-text"><strong>Nombre:</strong> {{ metadatausuarios.user.first_name }}</p>
+            <p class="card-text"><strong>Apellido:</strong> {{ metadatausuarios.user.last_name }}</p>
+            {% if metadatausuarios.avatar %}
+            <p class="card-text"><strong>Avatar:</strong></p>
+            <img src="{{ metadatausuarios.avatar.url }}" alt="Avatar" height="100px"><br>
+            {% endif %}
+            <a href="{% url 'editar_usuario' %}" class="boton-crear mt-3">Editar Información</a>
             
         
         

@@ -23,8 +23,8 @@ Edicion de Usuario
         <form action={% url "editar_usuario" %} method='POST' enctype='multipart/form-data' class="form-field mt-3">
             {% csrf_token %}
             {{formulario.as_p}}
+            <input type="submit" value="Editar" style="max-width: fit-content;" class="boton-crear me-2">
             <div class="d-flex justify-content-center mt-3">
-                <input type="submit" value="Editar" style="max-width: fit-content;" class="boton-crear me-2">
 
 
                 <a href={% url "cambiar_pass" %} class="boton-crear">Cambiar contraseña</a>
