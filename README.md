@@ -1,7 +1,7 @@
 # GonzaloEtchechury-ProyectoFinal
-<p align="left">
+
 ![Static Badge](https://img.shields.io/badge/Build-En_progreso-red?style=flat&logo=Django)
-</p>
+
 <h4 align="center">
 :construction: Proyecto en construcción :construction:
 </h4>
