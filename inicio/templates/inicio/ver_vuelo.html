@@ -6,6 +6,7 @@ Viendo vuelo
 
 {% block h1_header %}
 <h1>
+<<<<<<< HEAD
     Estas viendo el vuelo <br>{{ vuelo.vuelo }}
 </h1>
 {% endblock h1_header %}
@@ -37,3 +38,45 @@ Viendo vuelo
     </div>
 </div>
 {% endblock main %}
+=======
+Estas viendo el vuelo <br>{{vuelo.vuelo}}
+</h1>
+    
+{% endblock h1_header %}
+
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center" >
+
+        <h1>Detalles</h1>
+
+            <h5>
+                Nombre del Vuelo: 
+            </h5>
+            {{ vuelo.vuelo }} <br><br>
+            <h5>
+                Aerolínea:
+            </h5>
+            {{ vuelo.aerolinea }} <br><br>
+            <h5>
+            Fabricante: 
+            </h5>
+            {{ vuelo.fabricante }} <br><br>
+            <h5>
+                Modelo: 
+            </h5>
+            {{ vuelo.modelo }} <br><br>
+            <h5>
+                Pasajeros: 
+            </h5>
+            {{ vuelo.pasajeros }}   
+            
+            
+        
+        
+    </div>
+
+</div>
+
+{% endblock main %}
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334

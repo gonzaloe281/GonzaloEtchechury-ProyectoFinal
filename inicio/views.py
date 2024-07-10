@@ -1,27 +1,49 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
+=======
+from django.shortcuts import render, redirect
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
 from datetime import datetime
 
 from django.http import HttpResponse
 from django.template import Template, Context, loader
+<<<<<<< HEAD
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from inicio.models import Vuelo
 from .forms import CrearVueloFormulario, BuscarVuelo, EditarVueloFormulario
 from django.contrib.auth.mixins import LoginRequiredMixin
+=======
+
+from inicio.models import Vuelo
+from .forms import CrearVueloFormulario, BuscarVuelo, EditarVueloFormulario
+
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
 from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render(request, 'inicio/index.html')
 
+<<<<<<< HEAD
 def crear_vuelo_v1(request, nombrevuelo, aerolinea, fabricante, modelo, pasajeros, fecha):
     vuelo = Vuelo(nombrevuelo=nombrevuelo, aerolinea=aerolinea, fabricante=fabricante, modelo=modelo, pasajeros=pasajeros, fecha=fecha)
+=======
+def crear_vuelo_v1(request, nombrevuelo, aerolinea, fabricante, modelo, pasajeros):
+    vuelo = Vuelo(nombrevuelo=nombrevuelo, aerolinea=aerolinea, fabricante=fabricante, modelo=modelo, pasajeros=pasajeros)
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
     vuelo.save()
     return render(request, 'inicio/crear_vuelo.html', {'vuelo': vuelo})
 
 def crear_vuelo(request):
+<<<<<<< HEAD
     if request.method == 'POST':
         formulario = CrearVueloFormulario(request.POST, request.FILES)
+=======
+    formulario = CrearVueloFormulario()
+    if request.method == 'POST':
+        formulario = CrearVueloFormulario(request.POST)
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
         if formulario.is_valid():
             datos = formulario.cleaned_data
             vuelo = Vuelo(
@@ -29,6 +51,7 @@ def crear_vuelo(request):
                 aerolinea=datos.get('aerolinea'),
                 fabricante=datos.get('fabricante'),
                 modelo=datos.get('modelo'),
+<<<<<<< HEAD
                 pasajeros=datos.get('pasajeros'),
                 fecha=datos.get('fecha'),
                 imagen=datos.get('imagen') if 'imagen' in request.FILES else None
@@ -41,11 +64,20 @@ def crear_vuelo(request):
 
 
 @login_required
+=======
+                pasajeros=datos.get('pasajeros')
+            )
+            vuelo.save()
+            return redirect('listado')
+    return render(request, 'inicio/crear_vuelo.html', {'formulario': formulario})
+
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
 def eliminar_vuelo(request, id):
     vuelo = Vuelo.objects.get(id=id)
     vuelo.delete()
     return redirect('listado')
 
+<<<<<<< HEAD
 @login_required
 def editar_vuelo(request, id):
     vuelo = get_object_or_404(Vuelo, id=id)
@@ -76,6 +108,24 @@ def editar_vuelo(request, id):
     return render(request, 'inicio/editar_vuelo.html', {'formulario': formulario, 'vuelo': vuelo})
 
 
+=======
+def editar_vuelo(request, id):
+    vuelo = Vuelo.objects.get(id=id)
+    formulario = EditarVueloFormulario(initial={'vuelo': vuelo.vuelo, 'aerolinea': vuelo.aerolinea, 'fabricante': vuelo.fabricante, 'modelo': vuelo.modelo, 'pasajeros': vuelo.pasajeros})
+    if request.method == 'POST':
+        formulario = EditarVueloFormulario(request.POST)
+        if formulario.is_valid():
+            info = formulario.cleaned_data
+            vuelo.vuelo = info['vuelo']
+            vuelo.aerolinea = info['aerolinea']
+            vuelo.fabricante = info['fabricante']
+            vuelo.modelo = info['modelo']
+            vuelo.pasajeros = info['pasajeros']
+            vuelo.save()
+            return redirect('listado')
+    return render(request, 'inicio/editar_vuelo.html', {'formulario': formulario, 'vuelo': vuelo})
+
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
 def listado(request):
     formulario = BuscarVuelo()
     vuelos = Vuelo.objects.all()

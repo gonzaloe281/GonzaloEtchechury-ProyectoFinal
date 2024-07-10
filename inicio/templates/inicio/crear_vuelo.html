@@ -11,13 +11,26 @@ Registrar vuelo
 {% endblock h1_header %}
 
 {% block main %}
+<<<<<<< HEAD
 <div class="container d-flex justify-content-center align-items-start vh-100">
     <div class="texto-centrado border-shadow text-center">
         <form action="{% url 'crear_vuelo' %}" method="POST" enctype="multipart/form-data" class="form-field">
             {% csrf_token %}
             {{ formulario.as_p }}
+=======
+
+<div class="container d-flex justify-content-center align-items-start vh-100">
+    <div class="texto-centrado border-shadow text-center">
+        <form action={% url "crear_vuelo" %} method='POST' class="form-field">
+            {% csrf_token %}
+            {{formulario.as_p}}
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
             <input type="submit" value="Crear" class="boton-crear">
         </form>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
 {% endblock main %}

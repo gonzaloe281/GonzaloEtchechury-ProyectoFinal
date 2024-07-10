@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'inicio',
     'usuarios',
+<<<<<<< HEAD
     'pasajero',
     'mensajes',
+=======
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
 ]
 
 MIDDLEWARE = [
@@ -125,9 +128,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
 LOGIN_URL = '/usuarios/loguear/'
 LOGIN_REDIRECT_URL = '/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DATE_INPUT_FORMATS = ('%d-%m-%Y',)
+=======
+LOGIN_URL = '/usuario/logueo/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334

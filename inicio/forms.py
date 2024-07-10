@@ -6,8 +6,12 @@ class VueloFormularioBase(forms.Form):
     fabricante= forms.CharField(max_length=20)
     modelo= forms.CharField(max_length=20)
     pasajeros= forms.IntegerField()
+<<<<<<< HEAD
     fecha = forms.DateField(label="Fecha de vuelo", required=True,widget=forms.DateInput(format="%Y-%m-%d", attrs={"type": "date"}))
     imagen = forms.ImageField(required=False)
+=======
+    
+>>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
 class EditarVueloFormulario(VueloFormularioBase):
     ...
 
