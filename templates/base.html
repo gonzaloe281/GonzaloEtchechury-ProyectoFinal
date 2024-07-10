@@ -9,11 +9,7 @@
         {% block title_header %}
         {% endblock title_header %}
 
-<<<<<<< HEAD
         <link rel="icon" type="image/x-icon" href={% static "assets/favicon.ico" %}/>
-=======
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
->>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -27,7 +23,6 @@
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
                 <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
-<<<<<<< HEAD
                 <a class="navbar-brand" href={% url "listado" %}>Listado de Vuelos</a>
                 <a class="navbar-brand" href={% url "pasajeros" %}>Pasajeros</a>
                 <a class="navbar-brand" href={% url "about" %}>Acerca de mi</a>
@@ -54,33 +49,6 @@
                     </div>
                 {% endif %}
 
-=======
-                <a class="navbar-brand" href={% url "crear_vuelo" %}>Crear Vuelo</a>
-                <a class="navbar-brand" href={% url "listado" %}>Listado de Vuelos</a>
-                <a class="navbar-brand" href={% url "about" %}>Acerca de mi</a>
-                
-                {% if request.user.is_authenticated %}
-                <a class="navbar-brand" href={% url "editar_usuario" %}>
-                    {% if request.user.metadatausuarios.avatar %}
-                    <img src={{request.user.metadatausuarios.avatar.url}} alt="Avatar" height='40px'>
-                    {% endif %}
-                    {{request.user.username}}
-                </a>
-
-                    <form action={% url "salida" %} method='POST'>
-                        {% csrf_token %}
-                        <input type="submit" class="btn btn-secondary"  value="Cerrar Sesion">
-                    </form>
-                {% else %}
-                <div class="d-flex">
-                    <a class="btn btn-primary me-2" href={% url "loguear" %}>Iniciar Sesión</a>
-
-                    <a class="btn btn-danger" href={% url "registro" %}>Registrarse</a>
-                </div>
-                {% endif %}
-
-
->>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">

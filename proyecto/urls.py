@@ -22,13 +22,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('inicio.urls')),
-<<<<<<< HEAD
     path('', include('pasajero.urls')),
     path('', include('mensajes.urls')),
     path('', include('usuarios.urls')),
-=======
-    path('usuarios/', include('usuarios.urls')),
->>>>>>> 5c49fb87b60539352bf54de9f342e3469343c334
     
 ]
 
