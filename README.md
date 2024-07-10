@@ -1,4 +1,6 @@
-# GonzaloEtchechury-ProyectoFinal
+<em># GonzaloEtchechury-ProyectoFinal</em>
+![Static Badge](https://img.shields.io/badge/Build-En_progreso-red?style=flat&logo=Django)
+
 
 
 Estoy haciendo cambios, necesito tiempo
