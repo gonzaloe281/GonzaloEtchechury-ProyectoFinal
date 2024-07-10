@@ -6,37 +6,34 @@ Viendo vuelo
 
 {% block h1_header %}
 <h1>
-Estas viendo el vuelo <br>{{vuelo.vuelo}}
+    Estas viendo el vuelo <br>{{ vuelo.vuelo }}
 </h1>
-    
 {% endblock h1_header %}
 
 {% block main %}
-<div class="container d-flex justify-content-center align-items-start vh-100">
-    <div class="texto-centrado border-shadow text-center" >
+<div class="container d-flex justify-content-center align-items-start mt-2">
+    <div class="row w-100">
+        <div class="texto-centrado border-shadow text-center col-sm-6 d-flex flex-column justify-content-center">
+            <h1>Detalles</h1>
 
-        <h1>Detalles</h1>
+            <h5>Nombre del Vuelo: | Aerolínea:</h5>
+            {{ vuelo.vuelo }} | {{ vuelo.aerolinea }} <br><br>
 
-            <h5>
-                Nombre del Vuelo: |    Aerolínea:
-            </h5>
-            
-            {{ vuelo.vuelo }} |    {{vuelo.aerolinea}} <br><br>
-            <h5>
+            <h5>Fabricante: | Modelo:</h5>
+            {{ vuelo.fabricante }} | {{ vuelo.modelo }}<br><br>
 
-            Fabricante: |    Modelo:
-            </h5>
-            {{ vuelo.fabricante }} |      {{ vuelo.modelo }}<br><br>
-            
-            <h5>
-                Pasajeros: |      Fecha:
-            </h5>
-            {{ vuelo.pasajeros }} |    {{vuelo.fecha}}<br><br>
-            
-        
-        
+            <h5>Pasajeros: | Fecha:</h5>
+            {{ vuelo.pasajeros }} | {{ vuelo.fecha }}<br><br>
+        </div>
+        <div class="texto-centrado border-shadow text-center col-sm-6 d-flex flex-column justify-content-center">
+            {% if vuelo.imagen %}
+                <h5>Imagen del Avion:</h5>
+                <div class="justify-content-center">
+
+                    <img src="{{ vuelo.imagen.url }}" alt="Imagen del vuelo" width="200">
+                </div>
+            {% endif %}
+        </div>
     </div>
-
 </div>
-
 {% endblock main %}

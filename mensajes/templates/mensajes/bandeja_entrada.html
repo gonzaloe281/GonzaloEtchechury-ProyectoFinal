@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title_header %}
+
+{% endblock title_header %}
+
+{% block h1_header %}
+<h1>Bandeja de Entrada</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<div class="container justify-content-center mt-2">
+    <a href="{% url 'enviar_mensaje' %}" style="max-width: fit-content;" class="boton-crear d-block mx-auto mb-2">Enviar Mensaje</a>
+</div>
+<div class="container justify-content-center mt-2">
+    {% for mensaje in mensajes_recibidos %}
+    <div class="card mb-3 mt-2">
+        <div class="card-body">
+            <h5 class="card-title">De: {{ mensaje.emisor.username }}</h5>
+            <p class="card-text">{{ mensaje.contenido }}</p>
+            <p class="card-text"><small class="text-muted">Fecha: {{ mensaje.fecha_envio }}</small></p>
+            <p class="card-text"><small class="text-muted">Estado: {{ mensaje.leido|yesno:"Leído,No leído" }}</small></p>
+            <a href="{% url 'detalle_mensaje' mensaje.id %}" style="max-width: fit-content;" class="boton-crear">Ver Detalle</a>
+        </div>
+    </div>
+    {% empty %}
+    <div class="card mb-3 mt-2 container justify-content-center texto-centrado">
+        <p> <strong>
+            No tienes mensajes en tu bandeja de entrada.</p>
+
+        </strong> 
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock main %}

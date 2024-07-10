@@ -23,31 +23,31 @@
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
                 <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
-                {% comment %} <a class="navbar-brand" href={% url "crear_vuelo" %}>Crear Vuelo</a> {% endcomment %}
                 <a class="navbar-brand" href={% url "listado" %}>Listado de Vuelos</a>
                 <a class="navbar-brand" href={% url "pasajeros" %}>Pasajeros</a>
                 <a class="navbar-brand" href={% url "about" %}>Acerca de mi</a>
                 
                 {% if request.user.is_authenticated %}
-                <a class="navbar-brand" href={% url "ver_usuario" %}>
-                    {% if request.user.metadatausuarios.avatar %}
-                    <img src={{request.user.metadatausuarios.avatar.url}} alt="Avatar" height='40px'>
-                    {% endif %}
-                    {{request.user.username}}
-                </a>
+                    <a class="navbar-brand" href={% url "ver_usuario" %}>
+                        {% if request.user.metadatausuarios.avatar %}
+                            <img src="{{ request.user.metadatausuarios.avatar.url }}" alt="Avatar" height='40px'>
+                        {% endif %}
+                        {{ request.user.username }}
+                    </a>
 
                     <form action={% url "salida" %} method='POST'>
                         {% csrf_token %}
-                        <input type="submit" class="btn btn-secondary"  value="Cerrar Sesion">
+                        <input type="submit" class="btn btn-secondary me-2"  value="Cerrar Sesion">
                     </form>
+
+
+                    <a class="navbar-brand me-5" href={% url "bandeja_entrada" %}>Bandeja de Entrada ✉</a>
                 {% else %}
-                <div class="d-flex">
-                    <a class="btn btn-primary me-2" href={% url "loguear" %}>Iniciar Sesión</a>
-
-                    <a class="btn btn-danger" href={% url "registro" %}>Registrarse</a>
-                </div>
+                    <div class="d-flex">
+                        <a class="btn btn-primary me-2" href={% url "loguear" %}>Iniciar Sesión</a>
+                        <a class="btn btn-danger" href={% url "registro" %}>Registrarse</a>
+                    </div>
                 {% endif %}
-
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">

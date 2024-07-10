@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'inicio',
     'usuarios',
     'pasajero',
+    'mensajes',
 ]
 
 MIDDLEWARE = [

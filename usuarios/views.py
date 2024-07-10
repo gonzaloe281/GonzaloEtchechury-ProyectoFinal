@@ -46,19 +46,25 @@ def registro(request):
 @login_required
 def editar_usuario(request):
     metadatausuarios = request.user.metadatausuarios
-    formulario = EditarUsuario(initial={'avatar': metadatausuarios.avatar}, instance=request.user)
+    initial_data = {
+        'avatar': metadatausuarios.avatar,
+        'hobbie': metadatausuarios.hobbie
+    }
+    formulario = EditarUsuario(initial=initial_data, instance=request.user)
     
     if request.method == "POST":
         formulario = EditarUsuario(request.POST, request.FILES, instance=request.user)
         
         if formulario.is_valid():
-            
             avatar = formulario.cleaned_data.get('avatar')
+            hobbie = formulario.cleaned_data.get('hobbie')
+            
             if avatar:
                 metadatausuarios.avatar = avatar
             else:
                 formulario.cleaned_data['avatar'] = metadatausuarios.avatar
             
+            metadatausuarios.hobbie = hobbie
             metadatausuarios.save()
             formulario.save()
             return redirect('ver_usuario')

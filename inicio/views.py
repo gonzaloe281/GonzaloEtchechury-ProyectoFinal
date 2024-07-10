@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from datetime import datetime
 
 from django.http import HttpResponse
@@ -20,9 +20,8 @@ def crear_vuelo_v1(request, nombrevuelo, aerolinea, fabricante, modelo, pasajero
     return render(request, 'inicio/crear_vuelo.html', {'vuelo': vuelo})
 
 def crear_vuelo(request):
-    formulario = CrearVueloFormulario()
     if request.method == 'POST':
-        formulario = CrearVueloFormulario(request.POST)
+        formulario = CrearVueloFormulario(request.POST, request.FILES)
         if formulario.is_valid():
             datos = formulario.cleaned_data
             vuelo = Vuelo(
@@ -31,11 +30,15 @@ def crear_vuelo(request):
                 fabricante=datos.get('fabricante'),
                 modelo=datos.get('modelo'),
                 pasajeros=datos.get('pasajeros'),
-                fecha=datos.get('fecha')
+                fecha=datos.get('fecha'),
+                imagen=datos.get('imagen') if 'imagen' in request.FILES else None
             )
             vuelo.save()
             return redirect('listado')
+    else:
+        formulario = CrearVueloFormulario()
     return render(request, 'inicio/crear_vuelo.html', {'formulario': formulario})
+
 
 @login_required
 def eliminar_vuelo(request, id):
@@ -45,21 +48,33 @@ def eliminar_vuelo(request, id):
 
 @login_required
 def editar_vuelo(request, id):
-    vuelo = Vuelo.objects.get(id=id)
-    formulario = EditarVueloFormulario(initial={'vuelo': vuelo.vuelo, 'aerolinea': vuelo.aerolinea, 'fabricante': vuelo.fabricante, 'modelo': vuelo.modelo, 'pasajeros': vuelo.pasajeros})
+    vuelo = get_object_or_404(Vuelo, id=id)
     if request.method == 'POST':
-        formulario = EditarVueloFormulario(request.POST)
+        formulario = EditarVueloFormulario(request.POST, request.FILES)
         if formulario.is_valid():
-            info = formulario.cleaned_data
-            vuelo.vuelo = info['vuelo']
-            vuelo.aerolinea = info['aerolinea']
-            vuelo.fabricante = info['fabricante']
-            vuelo.modelo = info['modelo']
-            vuelo.pasajeros = info['pasajeros']
-            vuelo.fecha = info['fecha']
+            datos = formulario.cleaned_data
+            vuelo.vuelo = datos.get('vuelo')
+            vuelo.aerolinea = datos.get('aerolinea')
+            vuelo.fabricante = datos.get('fabricante')
+            vuelo.modelo = datos.get('modelo')
+            vuelo.pasajeros = datos.get('pasajeros')
+            vuelo.fecha = datos.get('fecha')
+            if 'imagen' in request.FILES:
+                vuelo.imagen = datos.get('imagen')
             vuelo.save()
             return redirect('listado')
+    else:
+        formulario = EditarVueloFormulario(initial={
+            'vuelo': vuelo.vuelo,
+            'aerolinea': vuelo.aerolinea,
+            'fabricante': vuelo.fabricante,
+            'modelo': vuelo.modelo,
+            'pasajeros': vuelo.pasajeros,
+            'fecha': vuelo.fecha,
+            'imagen': vuelo.imagen,
+        })
     return render(request, 'inicio/editar_vuelo.html', {'formulario': formulario, 'vuelo': vuelo})
+
 
 def listado(request):
     formulario = BuscarVuelo()

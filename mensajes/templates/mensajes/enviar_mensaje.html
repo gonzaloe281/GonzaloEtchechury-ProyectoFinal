@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 
-{% block title_head %}
-Registrar vuelo
-{% endblock title_head %}
+{% block title_header %}
+
+{% endblock title_header %}
 
 {% block h1_header %}
-<h1>
-    Crear Vuelos
-</h1>
+<h1>Enviar Mensaje</h1>
 {% endblock h1_header %}
 
 {% block main %}
 <div class="container d-flex justify-content-center align-items-start vh-100">
     <div class="texto-centrado border-shadow text-center">
-        <form action="{% url 'crear_vuelo' %}" method="POST" enctype="multipart/form-data" class="form-field">
+        <form method="post">
             {% csrf_token %}
             {{ formulario.as_p }}
-            <input type="submit" value="Crear" class="boton-crear">
+            <button type="submit" class="boton-crear">Enviar</button>
         </form>
     </div>
 </div>

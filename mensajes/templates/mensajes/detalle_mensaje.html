@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title_header %}
+
+{% endblock title_header %}
+
+{% block h1_header %}
+<h1>Detalle del Mensaje</h1>
+{% endblock h1_header %}
+
+{% block main %}
+<div class="container d-flex justify-content-center align-items-start">
+    <div class="texto-centrado border-shadow text-center">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">De: {{ mensaje.emisor.username }}</h5>
+                <p class="card-text">{{ mensaje.contenido }}</p>
+                <p class="card-text"><small class="text-muted">Fecha: {{ mensaje.fecha_envio }}</small></p>
+                <p class="card-text"><small class="text-muted">Estado: {{ mensaje.leido|yesno:"Leído,No leído" }}</small></p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="delete" class="btn btn-danger">Eliminar Mensaje ❕</button>
+                </form>
+                <a href="{% url 'enviar_mensaje' %}" class="boton-crear mt-2">Responder</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+</div>
+{% endblock main %}
