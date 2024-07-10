@@ -2,7 +2,7 @@
 ![Static Badge](https://img.shields.io/badge/Build-En_progreso-red?style=flat&logo=Django)
 
 
-
+-arreglando el push, se me estaba subiendo a otro repo
 Estoy haciendo cambios, necesito tiempo
 
 -queda arreglar la pagina principal, el README y el video,  (creo🤣)
