@@ -24,10 +24,20 @@ _Qué cosas necesitas para instalar el software y cómo instalarlas_
 
 
 -Python [link de descarga](https://www.python.org/downloads/)
+<br>
+
 -Visual Studio Code [link de descarga](https://code.visualstudio.com/)
+<br>
+
 * [Video de Instalación de Python y VSC](https://www.youtube.com/watch?v=6npp93ZIQgM&ab_channel=v%C3%ADctorRomero)
+<br>
+
 -Git [link de descarga](https://git-scm.com/) 
+<br>
+
 * [Diapositivas de cómo instalar git](https://docs.google.com/presentation/d/12ov-P60D98VumjZO23Y_TMDLlX9JHUFp1amG3YJyTqI/edit?usp=drive_link)
+<br>
+
 -Navegador Web, a elección: Edge, Chrome, Firefox (Recomendado), Brave, Safari, Etc
 
 
