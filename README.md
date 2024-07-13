@@ -21,7 +21,7 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 _Qué cosas necesitas para instalar el software y cómo instalarlas_
 
-```
+
 
 -Python [link de descarga](https://www.python.org/downloads/)
 -Visual Studio Code [link de descarga](https://code.visualstudio.com/)
@@ -29,7 +29,7 @@ _Qué cosas necesitas para instalar el software y cómo instalarlas_
 -Git [link de descarga](https://git-scm.com/) 
 * [Diapositivas de cómo instalar git](https://docs.google.com/presentation/d/12ov-P60D98VumjZO23Y_TMDLlX9JHUFp1amG3YJyTqI/edit?usp=drive_link)
 -Navegador Web, a elección: Edge, Chrome, Firefox (Recomendado), Brave, Safari, Etc
-```
+
 
 ### Instalación 🔧
 
