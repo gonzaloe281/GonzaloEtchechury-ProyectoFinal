@@ -6,11 +6,11 @@
 :construction: Proyecto en construcción :construction:
 </h4>
 
-_Este proyecto trata de emular una web de agente de ventas de pasajes aéreos, donde se podrá encontrar una página de inicio o bienvenida, una página donde se pueden ver los vuelos registrados o, en su defecto, crear uno, ingresando información en campos de Número de vuelo, Aerolínea, Fabricante y Modelo del avión, Fecha del vuelo, Imagen o foto del avión.
+_Este proyecto trata de emular una web de agente de ventas de pasajes aéreos, donde se podrá encontrar una página de inicio o bienvenida, una página donde se pueden ver los vuelos registrados o, en su defecto, crear uno, ingresando información en campos de Número de vuelo, Aerolínea, Fabricante y Modelo del avión, Fecha del vuelo, Imagen o foto del avión._
 
-También un menú donde se ocupa la lista de pasajeros o clientes, donde se puede registrar nombre, apellido, fecha de nacimiento, documento y ciudad.
+_También un menú donde se ocupa la lista de pasajeros o clientes, donde se puede registrar nombre, apellido, fecha de nacimiento, documento y ciudad._
 
-A su vez, tiene una parte de gestión de usuarios, donde se pueden registrar, iniciar sesión, editar los datos del usuario, colocar avatar, y finalmente una bandeja de mensajería donde interactuar con otros usuarios._
+_A su vez, tiene una parte de gestión de usuarios, donde se pueden registrar, iniciar sesión, editar los datos del usuario, colocar avatar, y finalmente una bandeja de mensajería donde interactuar con otros usuarios._
 
 
 ## Comenzando 🚀
@@ -54,7 +54,7 @@ Crea una nueva carpeta. Puedes hacerlo haciendo clic derecho en el escritorio, s
 Selecciona "Abrir con Code" o "Open with Code" del menú contextual. Esto abrirá Visual Studio Code con la carpeta seleccionada como el espacio de trabajo.
 
 3. Abrir una terminal en Visual Studio Code
-En Visual Studio Code, abre una nueva terminal bash. Puedes hacerlo desde el menú superior seleccionando Terminal > New Terminal o usando el atajo `Ctrl + ` `.
+En Visual Studio Code, abre una nueva terminal bash. Puedes hacerlo desde el menú superior seleccionando Terminal > New Terminal o usando el atajo `Ctrl + Apostrofe `.
 
 4. Clonar el repositorio
 En la terminal bash, clona el repositorio en la carpeta actual usando el siguiente comando:
@@ -94,7 +94,7 @@ Sigue las instrucciones para crear un superusuario.
 ```
 python manage.py runserver
 ```
-En la terminal va a aparecer el mensaje que confirma que se levantó el servidor y va a estar incluida la URL: http://127.0.0.1:8000/ mismo en la terminal apretando Ctrl + click izquierdo, abre tu navegador en esa dirección.
+En la terminal va a aparecer el mensaje que confirma que se levantó el servidor y va a estar incluida la URL: http://127.0.0.1:8000/ mismo en la terminal apretando `Ctrl + click izquierdo` , abre tu navegador en esa dirección.
 
 Con estos pasos, deberías tener tu proyecto Django clonado, configurado y en funcionamiento en tu entorno local utilizando Visual Studio Code y la terminal bash, empezando desde crear una carpeta en el escritorio. Si tienes algún problema o necesitas más detalles sobre algún paso, no dudes en decírmelo.
 
